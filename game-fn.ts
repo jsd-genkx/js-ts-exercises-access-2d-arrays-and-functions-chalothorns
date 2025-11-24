@@ -1,8 +1,14 @@
 const board = [
 	["A", "B", "C"],
 	["D", "E", "F"],
-	["G", "H", "I"],
+	//["G", "H", "I"],
 ];
+
+// console.log(board.length) //row length
+// console.log(board[0].length) //column length
+
+const rowLength = board.length; //ถ้าต้องการหาจำนวนแถว เราไม่ต้องใช้ [0] เพราะ board.length ให้คำตอบนั้นโดยตรง
+const colLength = board[0].length; //ใช้ 0 เพื่อบอกว่าดูที่แถวแรกนะ แล้วแถวแรกมีความยาวเท่าไหร่ =ซึ่งก็คือจำนวนคอลัมน์
 
 const moves = [];
 
@@ -13,10 +19,15 @@ moves.push(board[row][col]); // A
 
 // Define movement functions
 function moveRight() {
-	if(col < board[row].length-1){
-		col++;
-		moves.push(board[row][col]) //บันทึกค่า r กับ c อันใหม่เข้าไป
-	}
+if(col < colLength){
+	col++;
+	moves.push(board[row][col]) //บันทึกค่า r กับ c อันใหม่เข้าไป
+
+} else{
+	console.log("Invalid move") //มีเพื่อให้รู้ว่าถ้ามันไม่จริง ให้มันแสดงข้อความออกมาด้วยเพื่อให้เรารู้
+
+}
+
 }
 
 function moveLeft() {
@@ -32,7 +43,7 @@ function moveUp() {
 }
 
 function moveDown() {
-	if(row < board[row].length -1)
+	if(row < rowLength)
 		row++;
 	moves.push(board[row][col])
 }
