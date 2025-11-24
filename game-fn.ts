@@ -12,13 +12,30 @@ let col = 0;
 moves.push(board[row][col]); // A
 
 // Define movement functions
-function moveRight() {}
+function moveRight() {
+	if(col < board[row].length-1){
+		col++;
+		moves.push(board[row][col]) //บันทึกค่า r กับ c อันใหม่เข้าไป
+	}
+}
 
-function moveLeft() {}
+function moveLeft() {
+	if(col > 0)
+		col--;
+	moves.push(board[row][col])
+}
 
-function moveUp() {}
+function moveUp() {
+	if(row > 0)
+		row--;
+	moves.push(board[row][col])
+}
 
-function moveDown() {}
+function moveDown() {
+	if(row < board[row].length -1)
+		row++;
+	moves.push(board[row][col])
+}
 
 // Call the movement functions
 moveRight(); // Move from A to B
